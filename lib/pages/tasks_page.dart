@@ -2,19 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo/constant/colors.dart';
+import 'package:todo/extensions/space_xy_extension.dart';
 
 class TasksPage extends StatelessWidget {
   const TasksPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         floatingActionButton: MyFloatingActionButton(),
-        body: Stack(children: [
-          MyCustomAppBar(),
-          MyTasksList(),
-        ]),
+        body: Column(
+          children: [
+            MyCustomAppBar(),
+            5.0.spaceY,
+            MyTasksList(),
+          ],
+        ),
       ),
     );
   }
@@ -44,11 +48,12 @@ class MyTasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.backgroungcolors,
-      height: Get.height,
+      // color: Colors.amber,
+      height: Get.height / 1.5,
       width: Get.width,
       child: ListView.builder(
-        itemCount: 10,
+        scrollDirection: Axis.vertical,
+        itemCount: 2,
         itemBuilder: (context, index) {
           return const Card(
             color: AppColors.cardcolors,
@@ -76,6 +81,9 @@ class MyCustomAppBar extends StatelessWidget {
       width: Get.width,
       height: Get.height / 4,
       decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(offset: Offset(0, 2), color: Colors.black26),
+        ],
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(50),
         ),

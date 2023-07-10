@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.fade,
       getPages: Routes.Pages,
       initialBinding: Binding(),
-      initialRoute: '/TasksPage',
+      initialRoute: '/WellcomePage',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
